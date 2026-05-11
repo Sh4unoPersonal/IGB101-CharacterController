@@ -37,7 +37,10 @@ public class PlayerMovement : MonoBehaviour{
         TryOpenDoor();
 
         if (_isSwimming)
+        {
             SwimmingMovement();
+        }
+            
 
     }
 
@@ -63,8 +66,13 @@ public class PlayerMovement : MonoBehaviour{
         if (Input.GetKey("w"))
         {
             _characterController.Move(transform.forward * _swimSpeed * Time.deltaTime);
+            anim.SetBool("TreadingWater", false);
         }
-        
+        else if (Input.GetKeyUp("w"))
+        {
+            anim.SetBool("TreadingWater", true);
+        }
+
     }
 
     private void ForwardMovement(){
