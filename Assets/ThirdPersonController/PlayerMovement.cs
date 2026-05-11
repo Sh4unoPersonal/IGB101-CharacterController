@@ -8,13 +8,21 @@ public class PlayerMovement : MonoBehaviour{
 
     public float rotSpeed = 10;
 
+    private CharacterController _characterController;
+
     // Door 
     private bool _canOpenDoor = false;
     private DoorController _doorController;
 
+    // Swimming
+    private bool _isSwimming = false;
+    [SerializeField]
+    private float _swimSpeed = 3f;
+
     // Start is called before the first frame update
-    void Start(){
-        
+    void Start()
+    {
+        _characterController = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
@@ -27,6 +35,9 @@ public class PlayerMovement : MonoBehaviour{
         Actions();
 
         TryOpenDoor();
+
+        if (_isSwimming)
+            SwimmingMovement();
 
     }
 
@@ -45,6 +56,15 @@ public class PlayerMovement : MonoBehaviour{
                 //anim.SetBool("Opening Door", false);
             }
         }
+    }
+
+    void SwimmingMovement()
+    {
+        if (Input.GetKey("w"))
+        {
+            _characterController.Move(transform.forward * _swimSpeed * Time.deltaTime);
+        }
+        
     }
 
     private void ForwardMovement(){
@@ -98,4 +118,22 @@ public class PlayerMovement : MonoBehaviour{
         _canOpenDoor = true;
         _doorController = doorController;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Water"))
+        {
+            anim.SetBool("Swimming", true);
+            _isSwimming = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Water"))
+        {
+            anim.SetBool("Swimming", false);
+            _isSwimming = false;
+        }
+    } 
 }
