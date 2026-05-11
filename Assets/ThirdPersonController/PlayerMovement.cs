@@ -74,11 +74,22 @@ public class PlayerMovement : MonoBehaviour{
         }
     }
 
+    // Custom emotes.
+    // Custom input mapping.
     private void Actions(){
-        if(Input.GetKeyDown("1")){ // Changed INPUT. I can put fun animations here.
-            anim.SetBool("Waving", true);
-        } else if(Input.GetKeyUp("e")){
-            anim.SetBool("Waving", false);
+        if(Input.GetKeyDown("1"))
+        { 
+            anim.SetBool("Emoting", true);
+            anim.SetInteger("EmoteID", 0);
+        }
+        else if(Input.GetKeyDown("2"))
+        {
+            anim.SetBool("Emoting", true);
+            anim.SetInteger("EmoteID", 1);
+        }
+        else
+        {
+            anim.SetBool("Emoting", false);
         }
     }
 
