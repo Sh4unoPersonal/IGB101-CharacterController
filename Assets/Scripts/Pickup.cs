@@ -4,7 +4,6 @@ public class Pickup : MonoBehaviour
 {
     GameManager _gameManager;
     MeshRenderer _meshRenderer;
-
     AudioSource _audioSource;
 
     void Start()
@@ -16,7 +15,7 @@ public class Pickup : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && _meshRenderer.enabled)
         {
             _audioSource.Play();
             _gameManager._currentPickups++;
