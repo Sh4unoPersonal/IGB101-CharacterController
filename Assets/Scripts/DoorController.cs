@@ -3,6 +3,7 @@ using UnityEngine;
 public class DoorController : MonoBehaviour
 {
     private Animator _anim;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,7 +19,7 @@ public class DoorController : MonoBehaviour
             PlayerMovement _playerMovement = other.gameObject.GetComponent<PlayerMovement>();
             if (_playerMovement != null)
             {
-                _playerMovement.CanOpenDoor(this);
+                _playerMovement.CanUseDoor(true, this);
             }
         }
 
@@ -28,13 +29,17 @@ public class DoorController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            // Add door closing logic here, such as playing an animation or changing the door's state.
-            Debug.Log("Player has exited the door trigger.");
+            PlayerMovement _playerMovement = other.gameObject.GetComponent<PlayerMovement>();
+            if (_playerMovement != null)
+            {
+                _playerMovement.CanUseDoor(false, this);
+            }
         }
     }
 
-    public void OpenDoor()
+    public void ToggleDoor()
     {
-        _anim.SetTrigger("OpenDoor");
+        _anim.SetBool("IsOpen", (!_anim.GetBool("IsOpen")));
+
     }
 }

@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour{
     private CharacterController _characterController;
 
     // Door 
-    private bool _canOpenDoor = false;
+    private bool _canUseDoor = false;
     private DoorController _doorController;
 
     // Swimming
@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour{
 
         Actions();
 
-        TryOpenDoor();
+        TryToggleDoor();
 
         if (_isSwimming)
         {
@@ -44,14 +44,14 @@ public class PlayerMovement : MonoBehaviour{
 
     }
 
-    void TryOpenDoor()
+    void TryToggleDoor()
     {
-        if (Input.GetKeyDown("e") && _canOpenDoor)
+        if (Input.GetKeyDown("e") && _canUseDoor)
         {
             if (_doorController != null)
             {
                 {
-                    _doorController.OpenDoor();
+                    _doorController.ToggleDoor();
                 }
             }
             else if (Input.GetKeyUp("e"))
@@ -121,9 +121,9 @@ public class PlayerMovement : MonoBehaviour{
         }
     }
 
-    public void CanOpenDoor(DoorController doorController)
+    public void CanUseDoor(bool canUseDoor, DoorController doorController)
     {
-        _canOpenDoor = true;
+        _canUseDoor = canUseDoor;
         _doorController = doorController;
     }
 
