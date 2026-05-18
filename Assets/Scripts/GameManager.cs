@@ -5,7 +5,14 @@ public class GameManager : MonoBehaviour
 {
     public GameObject _player;
 
-    public Text _pickupText;
+    private UIManager _uiManager;
+
+     void Start()
+    {
+        _uiManager = GameObject.FindGameObjectsWithTag("UIManager")[0].GetComponent<UIManager>();
+        _uiManager.UpdatePickupText(_currentPickups, _maxPickups);
+    }
+
 
     // Audio Proximity Logic
     public AudioSource[] _audioSources;
@@ -13,15 +20,15 @@ public class GameManager : MonoBehaviour
 
     // Pickups | Level Completion Logic
     public int _currentPickups = 0;
-    public int _maxPickups;
+    [SerializeField]
+    private int _maxPickups;
     public bool _levelComplete = false;
 
     // Update is called once per frame
     void Update()
     {
         LevelCompleteCheck();
-        UpdateGUI();
-        //PlayAudioSamples();
+        _uiManager.UpdatePickupText(_currentPickups, _maxPickups);
     }
 
     void LevelCompleteCheck()
@@ -32,11 +39,7 @@ public class GameManager : MonoBehaviour
             _levelComplete = false;
     }
 
-    void UpdateGUI()
-    {
-        _pickupText.text = "Pickups: " + _currentPickups + "/" + _maxPickups;
-
-    }
+    
 
     // Play Audio Samples, when the Player is close.
     //void PlayAudioSamples()
