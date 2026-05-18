@@ -6,6 +6,7 @@ TagManager:
   tags:
   - GameManager
   - Water
+  - UIManager
   layers:
   - Default
   - TransparentFX
