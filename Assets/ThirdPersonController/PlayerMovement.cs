@@ -32,7 +32,12 @@ public class PlayerMovement : MonoBehaviour{
 
         Turning();
 
-        Actions();
+        // Allow emotes on land
+        if (!anim.GetBool("Swimming"))
+        {
+            Emotes();
+        }
+        
 
         TryToggleDoor();
 
@@ -104,7 +109,7 @@ public class PlayerMovement : MonoBehaviour{
 
     // Custom emotes.
     // Custom input mapping.
-    private void Actions(){
+    private void Emotes(){
         if(Input.GetKeyDown("1"))
         { 
             anim.SetBool("Emoting", true);
