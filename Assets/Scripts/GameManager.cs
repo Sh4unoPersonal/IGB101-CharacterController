@@ -4,7 +4,6 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public GameObject _player;
-
     private UIManager _uiManager;
 
      void Start()
@@ -24,39 +23,21 @@ public class GameManager : MonoBehaviour
     private int _maxPickups;
     public bool _levelComplete = false;
 
-    // Update is called once per frame
-    void Update()
-    {
-        LevelCompleteCheck();
-        _uiManager.UpdatePickupText(_currentPickups, _maxPickups);
-    }
+    // UI variable
+    public bool _hasUsedDoor = false;
 
-    void LevelCompleteCheck()
+    public void GotPickupItem()
     {
+        _currentPickups++;
+
         if (_currentPickups >= _maxPickups)
             _levelComplete = true;
         else
             _levelComplete = false;
+
+        _uiManager.UpdatePickupText(_currentPickups, _maxPickups);
+        _uiManager.UpdateObjectiveText(_hasUsedDoor, _levelComplete);
+
     }
 
-    
-
-    // Play Audio Samples, when the Player is close.
-    //void PlayAudioSamples()
-    //{
-    //    foreach (AudioSource audioSource in _audioSources)
-    //    {
-    //        float distance = Vector3.Distance(_player.transform.position, audioSource.transform.position);
-    //        if (distance <= _audioProximityThreshold)
-    //        {
-    //            if (!audioSource.isPlaying)
-    //                audioSource.Play();
-    //        }
-    //        else
-    //        {
-    //            if (audioSource.isPlaying)
-    //                audioSource.Stop();
-    //        }
-    //    }
-    //}
 }

@@ -5,11 +5,15 @@ public class UIManager : MonoBehaviour
 {
     private Text _pickupText;
     private Text _doorText;
+    private Text _objectiveText;
+
+    public bool _hasUsedDoor = false;
 
     void Awake()
     {
         _pickupText = GameObject.Find("PickupText").GetComponent<Text>();
         _doorText = GameObject.Find("DoorText").GetComponent<Text>();
+        _objectiveText = GameObject.Find("ObjectiveText").GetComponent<Text>();
     }
 
 
@@ -17,6 +21,8 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         UpdateDoorText(false, false); // Don't care about second variable here
+
+        UpdateObjectiveText(false, false);
     }
 
     // Update is called once per frame
@@ -38,5 +44,24 @@ public class UIManager : MonoBehaviour
         else
             _doorText.text = "";
     }
-     
+
+    public void UpdateObjectiveText(bool hasUsedDoor, bool hasAllPickups)
+    {
+        _objectiveText.text = "Objective(s): ";
+
+        if (!hasUsedDoor)
+        {
+            _objectiveText.text += "\nUse the door. ";
+        }
+        if (!hasAllPickups)
+        {
+            _objectiveText.text += "\nGet all of the pickups. ";
+        }
+
+        if (hasUsedDoor && hasAllPickups)
+        {
+            _objectiveText.text += "\nExit via the green cube.";
+        }
+    }
+
 }

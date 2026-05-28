@@ -18,7 +18,7 @@ public class Pickup : MonoBehaviour
         if (other.gameObject.CompareTag("Player") && _meshRenderer.enabled)
         {
             _audioSource.Play();
-            _gameManager._currentPickups++;
+            _gameManager.GotPickupItem();
             _meshRenderer.enabled = false;
             Destroy(gameObject, 1f);
         }
