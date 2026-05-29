@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public class GameManagerRiaan : MonoBehaviour
 {
     public GameObject Player;
     //Pickup and Level Completion Logic

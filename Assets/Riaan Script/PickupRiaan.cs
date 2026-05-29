@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class Pickup : MonoBehaviour
+public class PickupRiaan : MonoBehaviour
 {
-    GameManager gameManager;
+    GameManagerRiaan gameManager;
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerRiaan>();
     }    
     private void OnTriggerEnter(Collider otherObJect)
     {

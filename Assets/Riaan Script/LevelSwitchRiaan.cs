@@ -1,15 +1,15 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelSwitch : MonoBehaviour
+public class LevelSwitchRiaan : MonoBehaviour
 {
-    GameManager GameManager;
+    GameManagerRiaan GameManager;
     public string nextLevel;
 
     //Start is called before the first frame update
     void Start()
     {
-        GameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        GameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerRiaan>();
     }
 
     private void OnTriggerEnter(Collider otherObject)
