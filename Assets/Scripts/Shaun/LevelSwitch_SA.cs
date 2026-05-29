@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 public class LevelSwitch_SA : MonoBehaviour
 {
     GameManager_SA gameManager;
-    public string nextLevelName;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
