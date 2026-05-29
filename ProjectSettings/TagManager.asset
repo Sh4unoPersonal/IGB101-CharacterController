@@ -9,6 +9,7 @@ TagManager:
   - UIManager
   - GameManager_SA
   - UIManager_SA
+  - GameManagerRiaan
   layers:
   - Default
   - TransparentFX

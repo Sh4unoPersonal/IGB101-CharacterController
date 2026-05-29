@@ -6,7 +6,7 @@ public class PickupRiaan : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerRiaan>();
+        gameManager = GameObject.FindGameObjectWithTag("GameManagerRiaan").GetComponent<GameManagerRiaan>();
     }    
     private void OnTriggerEnter(Collider otherObJect)
     {
