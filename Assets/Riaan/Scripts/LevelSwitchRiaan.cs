@@ -1,8 +1,10 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelSwitch_Custom : MonoBehaviour
+public class LevelSwitchRiaan : MonoBehaviour
 {
+
+    // Custom script, to get custom game managager, it is just different from mine (Shaun)
     GameManagerRiaan gameManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -14,7 +16,11 @@ public class LevelSwitch_Custom : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player") && gameManager.levelComplete)
+        {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        Debug.Log("Player has entered the level switch trigger.");
+            Debug.Log("Lets GOOO");
+        }    
+            
+
     }
 }

@@ -6,10 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Riaan/Scenes/IGB101 Assignment 2 Riaan.unity
+    guid: 0437178b9fcda414d80bac251510f3c8
+  - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
-    path: Assets/Skybox/Midgard Skybox/Demo.unity
-    guid: e178953742dcc234bab1218b671607e5
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
