@@ -14,16 +14,16 @@ public class ThirdPersonCameraRiaan : MonoBehaviour {
 	public float upAngleView = 45.0f;
 	public float downAngleView = 65.0f;
 	
-	public float MaxViewDistance = 15f;
-	public float MinViewDistance = 1f;
+	public float MaxViewDistance = 8f;
+	public float MinViewDistance = 0.5f;
 	public int ZoomRate = 20;
 	private int lerpRate = 5;
-	private float distance = 1f;
+	private float distance = 0.3f;
 	private float desireDistance;
 	private float correctedDistance;
 	private float currentDistance;
 	
-	public float cameraTargetHeight = 1.0f;
+	public float cameraTargetHeight = 0.4f;
 	
 	//checks if first person mode is on
 	private bool click = false;
