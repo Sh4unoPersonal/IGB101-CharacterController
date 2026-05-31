@@ -595,12 +595,16 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'You Have Completed the showcase of Levels.
 
+
     The order was Riaan''s,
     then Shaun''s.
 
-    We had issues putting our third team members project in due
-    to conflicts in the version of unity used causing some corruption in our old
-    main file, not fun'
+
+    We had issues putting Hamilton''s project in due to conflicts
+    in the version of unity used causing some issues with merging to the same branch.
+
+    I
+    hope that a late submission of Hamilton uploading his own work can be accepted.'
 --- !u!222 &2102000827
 CanvasRenderer:
   m_ObjectHideFlags: 0
